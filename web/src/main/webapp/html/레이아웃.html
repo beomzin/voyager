@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style>
+html, body {
+	display: block;
+	width : 100%;
+	height : 100%;
+	margin : 0;
+	font-size : 12pt;
+	overflow: overlay;
+}
+
+div {
+    display: block;
+}
+
+h3, p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+h3 {
+    font-weight: bold;
+    font-size: 1.17em;
+}
+
+.bg {
+	width : 100%;
+	height : 100%;
+	background-color: #fff;
+	position : absolute;
+	top : 0px;
+	left : 0px;
+	z-index : 5;
+}
+
+#Head {
+    height: 60px;
+}
+
+.inner {
+	margin: 30px 30px 0;
+}
+
+.f_l {
+	float: left;
+}
+
+.f_r {
+	float: right;
+}
+
+.img_ico {
+	width: 27px;
+	height: 20px;
+	margin-right: 11px;
+	background: url(//t1.daumcdn.net/brunch/static/img/help/pc/ico_view_cover.v4.png) no-repeat;
+}
+
+.ico {
+	background: url(//t1.daumcdn.net/brunch9/static/images/pc/ico_brunch_v8_181004_v2.png) no-repeat 0 0;
+    overflow: hidden;
+	background-position: -120px -200px;
+    height: 28px;
+    margin: 1px 6px 0 5px;
+    width: 28px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.logo {
+	background: url(//t1.daumcdn.net/brunch9/static/images/pc/logo_brunch_v1.png) no-repeat;
+    display: block;
+    height: 22px;
+    margin-top: -1px;
+    width: 72px;
+}
+
+.search {
+	background-position: -30px 0;
+    display: inline-block;
+    height: 22px;
+    width: 22px;
+    margin: 0 0 0 16px;
+}
+
+.start {
+	border: 1px solid #959595;
+    border-radius: 16px;
+    color: #666;
+    font-family: "Noto Sans Light",sans-serif;
+    font-size: 12px;
+    height: 28px;
+    line-height: 28px;
+    margin-top: -5px;
+    text-align: center;
+    text-decoration: none;
+    width: 64px;
+}
+
+.intro {
+	margin:18px auto;
+    width: 960px;
+    letter-spacing: -.05em;
+}
+
+.title {
+	margin: 150px auto 4px;
+	color: #1a1a1a;
+    font-size: 40px;
+    font-weight: normal;
+    margin-top: 0;
+    text-align: left;
+}
+
+.desc {
+	margin: 0 auto;
+    width: 960px;
+    color: #cacaca;
+    font-size: 32px;
+    line-height: 46px;
+    margin-top: -3px;
+    padding-bottom: 16px;
+}
+
+.all_pic {
+    margin-top: 22px;
+    position: relative;
+    background-color: #fff;
+    height: 573px;
+    font-size: 0;
+}
+
+.wrap1 {
+    display: inline-block;
+    overflow: hidden;
+    width: 480px;
+    height: 520px;
+
+}
+
+.wrap2 {
+	display: inline-block;
+	overflow: hidden;
+	width: 960px;
+	height: 520px;
+}
+
+.pic1 {
+	float: left; 
+   	position: relative;
+   	width: 480px;
+   	height: 260px;
+}
+
+.pic2 {
+	height: 520px;
+    width: 320px;
+    float: left;
+    position: relative;
+}
+
+.paging {
+    margin: 22px auto 0;
+    text-align: center;
+    width: 960px;
+    height: 31px;
+    background-color: #ccc; 
+}
+
+.keyword {
+	overflow-x: auto;
+    width: 100%;
+    height: 409px;
+    background-color: #aaaaaa
+}
+
+.txt {
+	background: url(//t1.daumcdn.net/brunch9/static/images/pc/txt_brunch_v5_181004_v2.png) no-repeat 0 0;
+    display: block;
+    margin: 17px auto 0;
+    background-position: -101px -300px;
+    height: 13px;
+    margin-top: 152px;
+    width: 266px;
+}
+
+
+</style>
+<body>
+<div class="bg">
+	<header id="Head">
+		<div class="inner">
+			<div class="f_l">
+				<div class="img_ico #sidebar"></div>
+			</div>
+			<div class="f_l">
+				<div class="logo"></div>
+			</div>
+			<div class="f_r">
+				<div class="search img_ico #search_btn"></div>
+			</div>
+			<div class="f_r">
+				<div class="start">시작하기</div>
+			</div>
+		</div>
+	</header>
+	<div class="intro">
+		<h3 class="title">글이 작품이 되는 공간, 브런치<span class="ico"></span></h3>
+		<p class="desc">
+			<span>브런치에 담긴 아름다운 작품을 감상해 보세요<br/></span>
+			<span>그리고 다시 꺼내보세요<br/></span>
+			<span>서랍 속 간직하고 있는 글과 감성을.<br/></span>
+		</p>
+	</div>
+	<div class="all_pic">
+		<div class="wrap1">
+			<div class="pic1" style="background-color: #333333"></div>
+			<div class="pic1" style="background-color: #666666"></div>
+		</div>
+		<div class="wrap2">
+			<div class="pic2" style="background-color: #999999"></div>
+			<div class="pic2" style="background-color: #666666"></div>
+			<div class="pic2" style="background-color: #333333"></div>
+		</div>
+		<div class="wrap1">
+			<div class="pic1" style="background-color: #999999"></div>
+			<div class="pic1" style="background-color: #666666"></div>
+		</div>
+		<div class="paging"></div>
+	</div>
+	<div class="keyword">
+		<div class="txt">
+			<span class="text"></span>
+		</div>
+	</div>
+</div>
+</body>
+</html>

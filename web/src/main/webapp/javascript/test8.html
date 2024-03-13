@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#t {
+	border-collapse: collapse;
+	width: 400px;
+}
+
+#t tr {
+	height: 30px;
+	border: 1px solid #000;
+}
+</style>
+<script type="text/javascript" src="./jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+var seq = 1;
+$(document).ready(function() {
+	$("#addBtn").on("click", function() {
+		var html = "";
+		
+		html += "<tr no=\"" + seq + "\">";
+		html += "<td>" + seq + "</td>";
+		html += "<td>Test" + seq + "</td>";
+		html += "</tr>";
+		
+		seq++;
+		// append(값) : 값을 엔티티 뒤에 누적한다.
+		// prepend(값) : 값을 엔티티 앞에 누적한다.
+		// html(값) : 엔티티를 값으로 교체한다.
+		$("#t tbody").append(html);
+		// html() : 엔티티 내용을 가져온다
+		console.log($("#t tbody").html());
+		// off() : 할당된 이벤트 제거
+		// off(이벤트) : 지정 이벤트 제거
+		/*
+		$("#t tbody tr").off("click");	
+		// 이벤트를 할당할 때 해당 객체가 화면에 존재해야함
+		$("#t tbody tr").on("click", function() {
+			alert("클릭");
+		});
+		*/
+	});
+	// $(셀렉터1).on(이벤트, 셀렉터2, 함수)
+	// : 셀렉터1에 이벤트를 할당한다. 해당 이벤트가 셀렉터1 안에 있는 셀렉터2(대상)에서 발생했을 시 함수를 실행한다.
+	$("#t tbody").on("click", "tr", function() {
+		// $(this) : 이벤트 대상 객체
+		alert($(this).attr("no") +  "클릭");
+		if(confirm("지우겠습니까?")) {
+			$(this).remove();
+		}
+	});
+	
+	$("#resetBtn").on("click", function() {
+		seq = 1;
+		// empty() : 엔티티를 비운다
+		$("#t tbody").empty();
+	});
+});
+</script>
+</head>
+<body>
+<input type="button" value="추가" id="addBtn" />
+<input type="button" value="초기화" id="resetBtn" />
+<br/>
+<table id="t">
+	<thead>
+		<tr>
+			<td>번호</td>
+			<td>제목</td>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+</body>
+</html>

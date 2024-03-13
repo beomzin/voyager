@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="./jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+	var html = "";
+
+   	$(".num").on("click", function(){
+      html += $(this).val();
+      $("#input_val").val(html)*1;
+   	});
+   
+   	$(".cal").on("click", function(){      
+      var num1 = $("#result_val");
+      var num2 = $("#input_val");
+      
+      if($(this).val() == '+') {
+         num1.val(num1.val() *1 + num2.val() *1);
+         $("#input_val").val("0");
+         html = "";
+         
+      }
+      
+      if($(this).val() == '-') {
+         num1.val(num1.val() *1 - num2.val() *1);
+         $("#input_val").val("0");
+         html = "";
+      }
+      
+      if($(this).val() == '*') {
+         if(num1.val() != "0") {
+         num1.val((num1.val() *1) * num2.val() *1);
+         $("#input_val").val("0");
+         html = "";
+         } else {
+            num1.val(num2.val()*1);
+            num2.val("0");
+            html = "";
+         }
+      }
+      
+      if($(this).val() == '/') {
+         if(num1.val() != "0") {
+            num1.val((num1.val() *1) / num2.val() *1);
+            $("#input_val").val("0");
+            html = "";
+            } else {
+               num1.val(num2.val()*1);
+               num2.val("0");
+               html = "";
+            }
+      }
+   });
+
+   $("#reset").on("click", function(){
+      $("#input_val").val("0"); 
+      $("#result_val").val("0");
+      html = "";
+   });
+   
+   $("#result").on("click", function(){
+      $("#result_val").val();
+   });
+});
+</script>
+</head>
+<body>         
+<input type="text" id="result_val" value="0" readonly="readonly" />
+<br/>
+<input type="text" id="input_val" value="0" readonly="readonly" />
+<br/>
+<input type="button" value="7" class="num" />
+<input type="button" value="8" class="num" />
+<input type="button" value="9" class="num" />
+<input type="button" value="/" class="cal" />
+<br/>
+<input type="button" value="4" class="num" />
+<input type="button" value="5" class="num" />
+<input type="button" value="6" class="num" />
+<input type="button" value="*" class="cal" />
+<br/>
+<input type="button" value="1" class="num" />
+<input type="button" value="2" class="num" />
+<input type="button" value="3" class="num" />
+<input type="button" value="-" class="cal" />
+<br/>
+<input type="button" value="c" id="reset" />
+<input type="button" value="0" class="num" />
+<input type="button" value="=" id="result" />
+<input type="button" value="+" class="cal" />
+</body>
+</html>

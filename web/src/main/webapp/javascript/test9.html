@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.wrap{
+   width : 500px;
+   height : 266px;
+   box-shadow : 4px 4px 10px 3px #444;
+   overflow : hidden;
+   position : relative;
+   margin : 20px auto;
+   cursor : pointer;
+}
+
+#imgBox{
+   width : 500px;
+}
+
+.pause {
+   display : none;
+}
+
+.wrap:hover .pause {
+   display: inline-block;
+   width : 60px;
+   height : 60px;
+   background-color: #CFCFCF;
+   border : 2px solid #444;
+   font-size : 30px;
+   font-weight : bold;
+   text-align: center;
+   line-height: 54px;
+   opacity: 0.7;
+   border-radius: 60px;
+   position: absolute;
+   top: calc(50% - 32px);
+   left: calc(50% - 32px);
+   z-index:100;
+}
+
+.pause_bg{
+   display: none;
+   position: absolute;
+   width : 500px;
+   height: 266px;
+   top: 0px;
+   left: 0px;
+   background-color: #9E9E9E;
+   opacity: 0.7;
+   z-index: 50;
+} 
+
+.pointer{
+   width: 500px;
+   height: 13px;
+   position: absolute;
+   z-index: 30;
+   bottom: 10px;
+   left: 0px;
+   text-align: center;
+}
+
+.point, .point_on {
+   display: inline-block;
+   vertical-align: top;
+   width: 13px;
+   height: 13px;
+   margin : 0 2px;
+   /* border : 1px solid #000; */
+   box-shadow: 0px 0px 2px 2px #444;
+   border-radius: 13px;
+   background-color: #FFF;
+}
+
+.point_on {
+   background-color: orange;
+}
+</style>
+<script type="text/javascript" src="jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+var interval = null; // 작업 생성용
+var imgs = ["../images/5terre.jpg" ,"../images/mountains.jpg", "../images/lights.jpg"]; // 이미지명 보관
+var pos = 0; // 현재 위치
+
+$(document).ready(function() {
+	   $("#imgBox").hide(); // 이미지 숨겨놓고
+	   play(); // 일단 한 번 실행한 다음
+	   interval = setInterval(play, 3000); // 3초 뒤에 다시 실행
+	   // play() 실행 없이 interval부터 들어가면 0초에는 동작하지 않음
+	   // 따라서 미리 실행해두고 3초뒤에 바뀌는 인터벌을 실행 시키는 것이 좋음 
+	   
+	   $(".pause").on("click", function() {        // 일시정지 
+	      $(".pause_bg").fadeIn(50).fadeOut(50); // 배경 깜빡임
+	      
+	      if(interval == null) {  // 정지 상태라면
+	         play();          // 다시 실행하고
+	         interval = setInterval(play, 3000); // 3초뒤에 또 play 
+	      } else {
+	         clearInterval(interval); // 작업종료
+	         interval = null; // 인터벌 초기화
+	         $("#imgBox").clearQueue(); // 진행 중인 애들 종료 => 단 지금은 stop() 으로 대체
+	         $("#imgBox").stop(); // stop() : animation stop
+	         $("#imgBox").fadeIn(); // 진행 중 투명해졌을 때를 대비하여 나타나게함
+	      }
+	   });
+	   
+	function play() {
+	   $("#imgBox").fadeIn(function() { // 나타나면 함수 실행
+	      if(interval != null) {       // 진행 중이라면
+	         $("#imgBox").delay(2200).fadeOut(function() {  // 2.2초 뒤 숨긴 후 함수 실행
+	            pos++;  // 이미지 번호 증가
+	            
+	            if(pos == imgs.length) { // 최대 개수를 넘어갔을 경우 다시 0번으로 이동
+	               pos = 0;
+	            }
+	            
+	            $(".pointer span").attr("class", "point");  // 포인트 class 모두 일반화
+	            $("#p" + pos).attr("class", "point_on");    // 현재 위치에 맞는 포인트 적용
+	            
+	            $("#imgBox").attr("src", imgs[pos]); // 이미지 변경
+	         });
+	      } else{ // 진행을 멈췄다면 
+	         $("#imgBox").stop(); // 애니메이션 중지
+	      }
+	   });
+	   }
+	});
+
+</script>
+</head>
+<body>
+<div class="wrap">
+<img alt="이미지들" src="../images/5terre.jpg" id="imgBox" />
+<div class="pause">||</div>
+<div class="pause_bg"></div>
+<div class="pointer">
+   <span class = "point_on" id="p0"></span>
+   <span class = "point" id="p1"></span>
+   <span class = "point" id="p2"></span>
+</div>
+</div>
+</body>
+</html>

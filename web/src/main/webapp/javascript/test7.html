@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+#box {
+	display: inline-block;
+	vertical-align: top;
+	width: 150px;
+	height: 150px;
+	border: 1px solid #000;
+}
+
+.a {
+	background-color: red;
+}
+
+.b {
+	background-color: blue;
+}
+</style>
+<script type="text/javascript" src="./jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+$(document).ready(function() { // 문서의 조회가 끝난후 실행
+							   // window.onload와 동일하나 다수 선언해도 됨
+	$("#btn").on("click", function() {
+		alert("눌렀다 : " + $(".txt").val());
+		$(".txt").val("바꼈다");
+	});
+	
+	$("#btn1").on("click", function() {
+		// css(값1, 값2) : css중 값1에 값2를 넣는다.
+		// $("#box").css("background-color", "#FF9999");
+		// css(값1) : css중 값1에 해당하는 값을 가져온다.
+		// console.log($("#box").css("background-color"));
+		
+		// attr(값1, 값2) : 값1속성에 값2를 넣는다.
+		// attr(값1) : 값1속성의 값을 가져온다
+		if($("#box").attr("class") == "a") {
+			$("#box").attr("class", "b");
+		} else {
+			$("#box").attr("class", "a");
+		}
+		
+		// $("#box").fadeOut(100);
+		// $("#box").hide(); // hide() : 객체를 감춤. display : none으로
+		// fadeIn() ; 서서히 나타남. 투명도가 1.0까지
+		// fadeIn(속도) : 속도만큼 애니메이션이 진행됨.
+		// 숫자 - ms, 문자 - fast, slow
+		// $("#box").fadeIn("fast");
+		// slideDown() : 아래로 내리면서 나타남
+		// slideDown(속도)
+		// $("#box").slideDown(100, function() {
+		// 	console.log("slide 끝");
+		//	});
+		
+		// width() : 현재 가로 크기
+		// width(값) : 가로 크기를 값으로 변경
+		console.log($("#box").width());
+		$("#box").css("opacity", "0.0")
+		// $("#box").width($("#box").width() * 2);
+		$("#box").animate({
+			opacity: 1.0,
+			width: "+=50"
+		}, 10000);
+	});
+});
+</script>
+</head>
+<body>
+<input type="text" class="txt" />
+<input type="button" value="버튼" id="btn" />
+<input type="button" value="버튼1" id="btn1" />
+<br/>
+<div id="box"></div>
+</body>
+</html>

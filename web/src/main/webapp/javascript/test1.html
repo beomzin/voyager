@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+// 한줄주석
+/*
+ * 여러줄 주석
+ */
+// alert : 경고창
+// alert("Hello World!!");
+// console : 브라우저에서 제공하는 콘솔 
+console.log("Hello World!!");
+console.info("info");
+console.error("error");
+
+var a = 3;
+var b = 2;
+console.log(a);
+console.log(b);
+console.log(a + b);
+console.log(a - b);
+console.log(a * b);
+console.log(a / b);
+console.log(a % b);
+console.log(a == b);
+console.log(a != b);
+console.log(a < b);
+console.log(a <= b);
+console.log(a > b);
+console.log(a >= b);
+
+var c = "4";
+console.log(c + a + b); // "432"
+console.log(a + b + c); // "54"
+
+console.log("" + a + b + c);
+// 숫자 변수.toString() : 문자열로 변환
+console.log(a.toString() + b.toString());
+// parseInt(문자열) : 문자열을 정수로 변환
+console.log(parseInt(c) + a + b);
+// JavaScriot의 경우 문자열 * 숫자인 경우
+// 자동으로 숫자처리됨. 단, 숫자처리가 불가능한 경우 NaN(Not a Number)이 됨
+console.log(c * 1 + a + b);
+console.log("abc" * 1); // NaN
+// isNaN(값) : 값이 NaN인지 여부를 확인. 숫자인지 아닌지를 구분
+console.log(isNaN("abc"));
+
+if(a > 0) {
+	console.log("a가 0보다 크다.");
+} else {
+	console.log("a가 0보다 크지 않다.");
+}
+
+var str = "";
+
+for(var i = 1; i < 10; i++) {
+	// \n : 줄바꿈
+	// \t : tab
+	str += i + "\n";
+}
+
+console.log(str);
+
+str = "";
+// 구구단 2 ~ 9단 출력
+for(var i = 2; i < 10; i++) {
+		str += i + "단\n" ;
+	for(var j = 1; j < 10; j++) {
+		str += i + " X " + j + " = " + i * j + "\n"
+	}
+}
+
+console.log(str);
+
+var star = "";
+
+for(var i = 0; i < 5; i++) {
+	for(var j = 0; j < 5; j++) {
+		star += "*";
+	}
+	star += "\n"
+}
+
+console.log(star);
+
+star = "";
+
+for(var i = 0; i < 5; i++) {
+	for(var j = 0; j < 5; j++) {
+		if(j < i) {
+			star += " ";
+		} else {
+			star += "*";
+		}
+	}
+	star += "\n"
+}
+
+console.log(star);
+
+var a = 1;
+var b = 0;
+var sum = 0;
+var p = "";
+
+for(var i = 0; i < 10; i++) {
+	sum = a + b;
+	p += sum + " ";
+	a = b;
+	b = sum;
+}
+
+console.log(p);
+
+var arr = ["가나다", "라마바", "사아자"]
+
+console.log(arr[1]);
+
+arr[1] = "ABC";
+
+console.log(arr);
+// length : 길이
+console.log(arr.length);
+// toString() : 문자열로 값을 가져옴
+console.log(arr.toString());
+// pop() : 마지막 인덱스를 제거한다
+arr.pop();
+console.log(arr.toString());
+// push(값) : 인덱스를 추가하고 값을 넣는다 
+arr.push("123");
+console.log(arr.toString());
+// shift() : 맨 처음 인덱스를 제거한다 
+arr.shift();
+console.log(arr.toString());
+// unshift(값) : 맨 처음에 인덱스를 추가하고 값을 넣는다
+arr.unshift("DEF");
+console.log(arr.toString());
+// splice(숫자1, 숫자2, 값, 값, ...) : 숫자1번 인덱스 위치부터 숫자2개만큼 배열을 제거하고 값들을 추가한다.
+// 값은 선택영역
+arr.splice(1, 0, "사아자");
+console.log(arr.toString());
+// slice(숫자) : 숫자 이상 인덱스 부터 배열을 잘라냄
+// slice(숫자1, 숫자2) : 숫자1 이상 숫자2 미만의 인덱스의 배열을 잘라냄
+console.log(arr.slice(1));
+console.log(arr.slice(1, 2));
+
+arr = [5, 7, 3];
+var temp = 0;
+
+for(var i = 0; i < arr.length - 1; i++) {
+	for(var j = i + 1; j < arr.length; j++){
+		if(arr[i] > arr[j]) {
+			temp = arr[i];
+			arr[i] = arr[j];
+			arr[j] = temp
+		}
+	}
+}
+// sort() : 오름차순 정렬
+arr.sort();
+// reverse() : 배열 순서 역순 배치
+// sort + reverse = 내림차순
+arr.reverse(); 
+console.log(arr.toString());
+
+var stu = {
+		name : "홍길동",
+		age : 20,
+		position : "boss"
+}
+
+console.log(stu.name);
+console.log(stu);
+
+stu.age = 30;
+console.log(stu);
+
+// for에서의 of : 순차적 데이터에서 하나씩 내용을 취득한다.
+for(var a of arr) {
+	console.log(a);
+}
+// for에서의 in : 순차적 대이터에서 인덱스 번호를 하나씩 취득한다.
+for(var a in arr) {
+	console.log(a);
+}
+
+//
+var list = new Array();
+
+for(var i = 10; i > 0; i--) {
+	var board = {
+			no : i,
+			title : "Test" + i,
+			writer : "Tester"
+	}
+}
+</script>
+</head>
+<body>
+
+</body>
+</html>

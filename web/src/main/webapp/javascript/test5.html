@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#box {
+	display: inline-bloxk;
+	vertical-align: top;
+	width: 300px;
+	height: 400px;
+	border: 1px solid #000;
+}
+</style>
+<script>
+var seq = 1;
+
+function add1() {
+	var box = document.getElementById("box");
+	console.log(box.innerHTML);
+	var html = "<div onclick=\"del(this);\">test" + seq++ + "</div>";
+	
+	box.innerHTML += html;
+	
+	// var d = document.createElement("div");
+	// var dTxt = document.createTextNode("test");
+	// d.appendChild(dTxt);
+	// box.appendChild(d);
+}
+
+function add2() {
+	var box = document.getElementById("box");
+	
+	var html = "<div onclick=\"del(this);\">test" + seq++ + "</div>";
+	
+	box.innerHTML = html + box.innerHTML;
+}
+
+function del(obj) {
+	obj.remove();
+}
+
+var d = new Date();
+
+console.log(d);
+console.log(d.getFullYear());
+console.log(d.getMonth());
+console.log(d.getDate());
+console.log(d.getHours());
+console.log(d.getMinutes());
+console.log(d.getSeconds());
+console.log(d.getMilliseconds());
+console.log(d.getDay());
+</script>
+</head>
+<body>
+<input type="button" value="add1" onclick="add1()" />
+<input type="button" value="add2" onclick="add2()" />
+<br/>
+<div id="box">
+</div>
+</body>
+</html>

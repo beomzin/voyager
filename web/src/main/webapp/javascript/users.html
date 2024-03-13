@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+table {
+	border-collapse: collapse;
+	width: 800px;
+}
+
+thead {
+	border-bottom: 2px solid #000;
+}
+
+.border {
+	border-bottom: 2px solid #000;
+}
+
+td, th {
+	border: 1px solid #000;
+	height: 30px;
+	text-align: center;
+}
+</style>
+<script type="text/javascript" src="./jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$.ajax({
+		url: "./json/users.json",
+		type: "GET",
+		dataType: "json",
+		success: function(res) {
+			console.log(res);
+			var html = "";
+			
+			for(var data of res) {
+			html += "<tr>";
+			html += "<td rowspan=\"3\">" + data.id + "</td>";
+			html += "<td>" + data.name +"</td>";
+			html += "<td>" + data.phone + "</td>";
+			html += "<td>" + data.email + "</td>";
+			html += "</tr>";
+			html += "<tr>";
+			html += "<td>" + data.address.city +"</td>";
+			html += "<td colspan=\"2\">" + data.address.zipcode +"</td>";
+			html += "</tr>";
+			html += "<tr class=\"border\">";
+			html += "<td>" + data.company.name +"</td>";
+			html += "<td colspan=\"2\">" + data.company.bs +"</td>";
+			html += "</tr>";
+			}
+			
+			
+			$("tbody").html(html);
+		},
+		error: function(request, status, error) {
+			console.log(request.responseText);
+		}
+	});
+});
+</script>
+</head>
+<body>
+<table>
+	<thead>
+		<tr>
+			<th rowspan="3">번호</th>
+			<th>이름</th>
+			<th>전화번호</th>
+			<th>이메일</th>
+		</tr>
+		<tr>
+			<th>도시</th>
+			<th colspan="2">우편번호</th>
+		</tr>
+		<tr>
+			<th>회사명</th>
+			<th colspan="2">업종</th>
+		</tr>
+	</thead>	
+	<tbody>
+		<tr>
+			<td rowspan="3">번호</td>
+			<td>이름</td>
+			<td>전화번호</td>
+			<td>이메일</td>
+		</tr>
+		<tr>
+			<td>도시</td>
+			<td colspan="2">우편번호</td>
+		</tr>
+		<tr class="border">
+			<td>회사명</td>
+			<td colspan="2">업종</td>
+		</tr>
+	</tbody>
+</table>
+</body>
+</html>

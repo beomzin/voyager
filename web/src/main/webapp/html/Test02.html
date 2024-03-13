@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+table {
+	/* border-collapse : 테이블 테두리 및 여백 속성지정 방법 */
+	border-collapse : collapse;
+}
+tr, td {
+	border : 1px solid #333333;
+	height : 40px;
+	/* vertical-align : 요소의 세로정렬을 지정. 단, table에서는 내용의 세로정렬 */
+	vertical-align : top;
+}
+/*
+	테이블 사용시
+	같은 위치의 칼럼들이 크기가 각각 다른 경우
+	제일 큰 크기를 기준으로 맞춘다
+*/
+td:nth-child(1) {
+	width : 50px;
+}
+td:nth-child(2) {
+	width : 100px;
+}
+td:nth-child(3) {
+	width : 150px;
+}
+
+</style>
+</head>
+<body>
+<table>
+	<colgroup>
+		<!--
+			col의 width : 숫자를 입력, px로 지정됨
+			css보다 우선권
+		-->
+		<!--
+			<col width="100" />
+			<col width="50" />
+			<col width="50" />
+		-->
+	</colgroup>
+<!-- 헤더 영역 -->
+	<thead>
+		<!--
+		tr : 한줄을 나타냄
+		th, td : 한칸
+		th : 가운데정렬 굵게
+		-->
+		<tr>
+			<th>하나</th>
+			<td>둘</td>
+			<td>셋</td>
+		</tr>
+	</thead>
+<!-- 내용 영역 -->
+	<tbody>
+		<tr>
+			<!-- rowspan : 세로로 row영역 개수 지정 -->
+			<td rowspan="2">1-1</td>
+			<!-- colspan : 가로로 col영역 개수 지정 -->
+			<td colspan="2">1-2</td>
+		</tr>
+		<tr>
+			<td>2-2</td>
+			<td>2-3</td>
+		</tr>
+	</tbody>
+<!-- 잘 쓰지 않음 -->
+	<tfoot></tfoot>		
+</table>
+</body>
+</html>

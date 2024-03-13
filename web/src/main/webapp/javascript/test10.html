@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+table {
+	border-collapse: collapse;
+	width: 300px;
+}
+
+td, th {
+	border: 1px solid #000;
+	height: 30px;
+	text-align: center;
+}
+</style>
+<script type="text/javascript" src="jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	// 객체.length : 해당 객체들의 개수
+	console.log($("tbody [type='checkbox']").length);
+	
+	$("tbody").on("click", ".cb", function() {
+		// 셀렉터 중 : checked => 체크 됨 을 나타냄
+		console.log($("tbody .cb:checked").length); // tbody에 체크된 것의 개수
+		console.log($("tbody .cb:checked").val()); // tbody안에 체크된 것의 값
+		
+		// 객체.each(함수) : 해당 객체만큼 돌면서 함수를 실행
+		var arr =[];
+		
+		$("tbody .cb:checked").each(function() { // tbody안에 체크된 만큼 함수 실행
+			arr.push($(this).val()); // 배열에 현재 순번의 체크된 체크박스 값 넣기
+		});
+		
+		console.log(arr);
+		
+		$("#res").html(arr.toString());
+		
+		if(arr.length == $("tbody .cb").length) { // 선택된 것과 체크박스 개수가 동일
+			// 상태값과 관련된 경우 attr을 사용 시 한번만 적용
+			// $("thead .cb").attr("checked", "checked");
+			// prop(상태, boolean) : 해당 상태를 boolean에 맞추어 적용
+			$("thead .cb").prop("checked", true);
+		} else { //동일하지 않을때
+			$("thead .cb").prop("checked", false);
+		}
+	}); // tbody .cb click end
+	
+	$("thead").on("click", ".cb", function() { // 전체선택, 해제 클릭 시
+		//if($(this).prop("checked")) { // 클릭 대상이 현재 체크된 상태일때
+		// 객체.is(셀렉터) : 객체가 셀렉터에 해당하는지를 확인
+		if($(this).is(":checked")) { // 클릭 대상이 현재 체크된 상태일때		
+			$("tbody .cb").prop("checked", true); // tbody에 .cb를 체크상태로		
+		} else { // 아닐 때
+			$("tbody .cb").prop("checked", false); // tbody에 .cb를 체크안된 상태로				
+		}
+	}); // thead .cb click end
+	
+	$("tbody").on("click", "tr", function() {
+		console.log($(this).children().eq(0)); // tr의 자식 중 인덱스 0번째 자식을 취득
+		console.log($(this).children(":nth-child(2)")); // tr의 자식 중 2번째 자식을 취득
+		// tr의 자식 중 2번째 자식의 엔티티를 취득
+		console.log($(this).children(":nth-child(2)").html()); // tr의 자식 중 2번째 자식을 취득
+	});
+}); // document ready end
+</script>
+</head>
+<body>
+<div>- 선택한 값 -</div>
+<div id="res"></div>
+<br/>
+<table>
+	<thead>
+		<tr>
+			<th>
+				<input type="checkbox" class="cb" />
+			</th>
+			<th>텍스트</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<input type="checkbox" class="cb" value="1" />
+			</td>
+			<td>text1</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="checkbox" class="cb" value="2" />
+			</td>
+			<td>text2</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="checkbox" class="cb" value="3" />
+			</td>
+			<td>text3</td>
+		</tr>
+	</tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+// window.onload : 화면이 다 로드 된 이후 실행
+// onload 사용 시 한번만 작성한다.
+window.onload = function() {
+	console.log("A");
+}
+
+var t1 = document.getElementById("txt");
+console.log(t1); // null : 해당 시점에 화면에 대상이 없기 때문
+
+console.log("B");
+
+window.onload = function() {
+	console.log("C");
+	var t = document.getElementById("txt");
+	console.log(t);
+}
+
+function test() {
+	console.log("함수 호출!");
+	// document.getElementById(값) : 아이디가 값과 일치하는 객체를 취득
+	var t2 = document.getElementById("txt");
+	// 화면객체.속성 : 해당 속성의 값을 가져온다 
+	// 화면객체.속성 = 값 : 해당 속성의 값을 넣는다 
+	console.log(t2.value);
+	console.log(t2.id);
+	console.log(t2.type);
+	
+	t2.value = "기운냅시다";
+	t2.type = "password";
+}
+
+function test2() {
+	var a = document.getElementById("ta");
+	// textarea의 경우 실제 값은 엔티티에 보관됨
+	// value 속성 사용 시 엔티티에 접근
+	console.log(ta.value);
+}
+</script>
+</head>
+<body>
+<input type="text" id="txt" /> <br/>
+<input type="button" value="버튼1" onclick="test();" ondblclick="alert('더블')" />
+<br/>
+<textarea rows="5" cols="10" id="ta"></textarea>
+<br/>
+<input type="button" value="버튼2" onclick="test2();" />
+</body>
+</html>

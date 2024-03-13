@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head> <!-- 설정(디자인, 동작) -->
+<meta charset="UTF-8">
+<title>Insert title here</title> <!-- 브라우저 탭 제목 -->
+</head>
+<body> <!-- 실제 보여지는 영역 -->
+<!--
+	input의 type : 사용자의 입력 형태를 지정
+
+-->
+<!--
+	value : 값
+	readonly : 읽기전용 (수정 x, 복사 o, 값 전달 o, 포커스 o)
+	disabled : 비활성화 (수정 x, 복사 x, 값 전달 x, 포커스 x)
+	maxlength : 글자수 제한
+	placeholder : 안내문 (값이 없는 경우 제공)
+-->
+<!-- type=text : 사용자의 문자입력을 한줄로 받음 -->
+<input type="text" maxlength="3" placeholder="3글자까지 가능" value="가나"
+	   readonly="readonly" disabled="disabled" />
+<br/>
+<!-- type=number : 사용자의 숫자입력을 한줄로 받음, maxlength 미동작 -->
+<input type="number" maxlength="5" />
+<br/>
+<!-- password의 경우 text와 동일하게 사용 -->
+<input type="password" />
+<br/>
+<!-- 날짜, 시간 선택 -->
+<input type="date" />
+<input type="month" />
+<input type="week" />
+<input type="time" />
+<br/>
+<!-- type=color의 경우 value로 hex컬러코드를 가지고 있음	 -->
+<input type="color" value="#AFAFAF" />
+<br/>
+<!-- type=button은 일반버튼, 동작을 지정하기 전까지 아무런 이벤트가 없음 -->
+<input type="button" value="버튼1" />
+<!-- type=submit은 form안에 존재 할 경우 클릭시 form을 실행한다 -->
+<input type="submit" value="버튼2" />
+<!-- button태그는 일반버튼, 디자이너들이 자주 사용 -->
+<button>버튼3</button>
+<br/>
+<!-- type=file은 컴퓨터의 파일의 위치를 지정 -->
+<input type="file" />
+<br/>
+<!--
+	type=checkbox : 다중선택을 위한 입력
+	checked=checked : 선택된 상태로 지정
+-->
+<input type="checkbox" checked="checked">1
+<input type="checkbox">2
+<input type="checkbox">3
+<br/>
+<!-- 
+	type=radio : 단일선택을 위한 입력
+	name속성 : 값 전달을 위한 key, type=radio일 경우 그룹화 기능도 포함
+-->
+<input type="radio" name="a">1
+<input type="radio" name="a" checked="checked">2
+<input type="radio" name="a">3
+<br/>
+<!--
+	select, option : 단일선택을 위한 입력
+	selected=selected : 해당 옵션을 선택된 상태로 지정
+-->
+<select>
+	<option>1</option>
+	<option selected="selected">2</option>
+	<option>3</option>
+</select>
+<br/>
+<!--
+	textarea : 여러줄의 문장을 입력할때 사용, 자동 스크롤 지원
+				entity가 value역할을 함
+-->
+<textarea rows="5" cols="10">
+텍스트 입력
+</textarea>
+
+
+</body>
+</html>

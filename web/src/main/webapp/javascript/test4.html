@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#box {
+	display: inline-block;
+	vertical-align: top;
+	width: 100px;
+	height: 100px;
+	border: 1px solid #000000;
+} 
+</style>
+<script>
+function clickEvent(obj) {
+	console.log("클릭");
+	console.log(obj.id);
+}
+
+function moverEvent() {
+	console.log("마우스 올라감");
+}
+
+function moutEvent() {
+	console.log("마우스 나감");
+}
+
+function focusEvent() {
+	console.log("선택됨");
+}
+
+function keyEvent(e) {
+	console.log(e);
+}
+
+window.onload = function() {
+	document.getElementById("txt").onclick =
+		function() {
+			console.log("텍스트 클릭")
+	}
+}
+
+function changeBox() {
+	var box = document.getElementById("box");
+	
+	box.style.backgroundColor = "#8f8ebf";
+	box.style.borderRadius = "50px";
+	
+	console.log(box.style.backgroundColor);
+}
+
+function largeBox() {
+	var box = document.getElementById("box");
+	
+	box.style.width = box.clientWidth * 2 + "px";
+	box.style.height = box.clientHeight * 2 + "px";
+}
+
+function smallBox() {
+	var box = document.getElementById("box");
+	
+	box.style.width = box.clientWidth / 2 + "px";
+	box.style.height = box.clientHeight / 2 + "px";
+}
+</script>
+</head>
+<body>
+<input type="text" id="txt" onfocus="focusEvent();"
+	 					    onkeypress="keyEvent(event)" />
+<input type="button" value="바껴라"
+					 onclick="changeBox();" />
+<input type="button" value="커져라"
+					 onclick="largeBox();" />
+<input type="button" value="작아져라"
+					 onclick="smallBox();" />
+<br/>
+<div id="box" onclick="clickEvent(this);"
+			  onmouseover="moverEvent();"
+			  onmouseout="moutEvent();"></div>
+</body>
+</html>

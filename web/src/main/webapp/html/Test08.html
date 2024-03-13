@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style>
+html, body {
+	width : 100%;
+	height : 100%;
+	margin : 0;
+}
+
+.bg {
+	width : 100%;
+	height : 100%;
+	background-color: #000;
+	position : absolute;
+	top : 0px;
+	left : 0px;
+	z-index : 5;
+	opacity : 0.4; /* 투명도 (투명)0.0 ~ 1.0(불투명). 단, 하위도 모두 적용 */
+}
+
+.p {
+	display : inline-block;
+	vertical-align : top;
+	width : 300px;
+	height : 400px;
+	background-color: #fff;
+	position : absolute;
+	top : 50%;
+	left : 50%;
+	margin-left : -150px;
+	margin-top : -200px;
+	z-index : 10;
+}
+
+.p_title {
+	height : 50px;
+	font-weight : bold;
+	line-height : 50px; /* 한 줄의 간격 : 글자 크기는 별개  */
+	background-color : orange;
+	text-indent : 10px; /* 첫줄 들여쓰기 : 제목은 padding보다 indent 쓰는 것이 효율적*/
+}
+
+.p_con {
+	width : 280px;
+	height : 280px;
+	padding : 10px;	
+}
+
+.btn {
+	display : inline-block;
+	vertical-align : top;
+	margin-top : 9px;
+	margin-right : 9px;
+	height : 30px;
+	width : 80px;
+	line-height : 30px;
+	text-align : center;
+	background-color : #3ce6be;
+	cursor : pointer;
+	border-radius : 3px;
+	box-shadow : 1px 1px 4px 1px #888;
+}
+
+.btn:hover {
+	background-color : #3cd6b2;
+}
+
+.btn:active {
+	background-color : #3df5ca;
+}
+
+</style>
+<body>abcd
+<div class="bg"></div>
+<div class="p">
+	<div class="p_title">제목</div>
+	<div class="p_con">내용내용내용</div>
+	<div class="p_btn">
+		<div class="btn">버튼</div>
+	</div>
+</div>
+</body>
+</html>

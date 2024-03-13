@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+#bigBtn {
+	 display: inline-block;
+	 width: 300px;
+	 height: 300px;
+	 line-height: 150px;
+	 border: 3px solid #000;
+	 border-radius: 150px;
+	 background-color: red;
+	 font-size: 40pt;
+	 font-weight: bold;
+	 color: yellow;
+	 text-align: center;
+	 cursor: pointer;
+}
+</style>
+<!--
+ script 태그에 src로 소스를 가져오는 경우 해당 태그의 내용을 교체하기 때문에 해당 태그에 내용은 지워진다.
+ 따라서 script를 추가로 구현하려면 별도의 script태그를 선언해야 함
+-->
+<script type="text/javascript" src="./test6.js">
+alert("A");
+</script>
+<script type="text/javascript">
+alert("B");
+</script>
+</head>
+<body>
+<input type="button" value="시작" onclick="startBtn();" />
+<input type="button" value="정지" onclick="stopBtn();" />
+<input type="button" value="이동" onclick="goBtn();" />
+<input type="button" value="뒤로가기" onclick="backBtn();" />
+<div>
+현재시간 [ <span id="t"></span> ]
+</div>
+<br/>
+<input type="button" value="시작버튼" onclick="sBtn();" />
+<br/>
+<div id="bigBtn" onclick="big();">누르지<br/>마시오</div>
+</body>
+</html>
