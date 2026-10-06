@@ -11,7 +11,7 @@
 | [`java/`](java) | Java 기초 | 변수·자료형, 조건/반복문, 배열, 메서드, 클래스·상속·추상클래스·인터페이스, 싱글톤, Ctrl/Svc/Bean 계층 분리 연습 |
 | [`web/`](web) | HTML · CSS · JS · JSP | HTML 태그/레이아웃, 이력서·회원가입 페이지 클론, 바닐라 JS(계산기, 숫자야구, JSON 다루기), JSP·JSTL |
 | [`spring/`](spring) | Spring MVC | Spring 3.1 + Maven 기반 웹 프로젝트, `@RequestMapping` 컨트롤러, 서비스 계층, JSP 뷰(구구단 등) |
-| [`express/`](express) | Node.js 기초 | JS 문법 예제(`syntax/`), `http`·`fs` 모듈만으로 만든 파일 기반 CRUD 웹앱 |
+| [`node.js-basic/`](node.js-basic) | Node.js 기초 | JS 문법 예제(`syntax/`), `http`·`fs` 모듈만으로 만든 파일 기반 CRUD 웹앱 |
 | [`node.js-mysql/`](node.js-mysql) | Node.js + MySQL | 위 웹앱을 MySQL(`topic`, `author` 테이블) 기반으로 확장 |
 | [`vue/`](vue) | Vue CLI | `hello-vue`(데이터 바인딩, `v-if`/`v-for`, computed, 이벤트), `vue-practice`(라우터, axios), `sample_db`(Express + MySQL API 서버) |
 | [`vite/`](vite) | Vue 3 + Vite | 주제별 미니 프로젝트(아래 표 참고), SQLite 기반 API 서버(`database`) |
@@ -56,9 +56,9 @@ java -cp bin Test01
 ### JSP / Spring (`web/`, `spring/`)
 Eclipse(STS)에 프로젝트를 import 한 뒤 Tomcat 서버에 올려 실행합니다. `spring/` 은 Maven 프로젝트입니다.
 
-### Node.js (`express/`, `node.js-mysql/`)
+### Node.js (`node.js-basic/`, `node.js-mysql/`)
 ```bash
-cd express        # 또는 node.js-mysql
+cd node.js-basic   # 또는 node.js-mysql
 npm install
 node main.js      # http://localhost:3000
 ```
