@@ -1,1 +1,22 @@
-.idea
+# IDE
+.idea/
+*.iml
+.vscode/*
+!.vscode/extensions.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Java build output
+*.class
+bin/
+target/
+
+# Node
+node_modules/
+dist/
+npm-debug.log*
+yarn-error.log*
+.env
+.env.*
